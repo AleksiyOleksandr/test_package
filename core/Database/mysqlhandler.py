@@ -37,9 +37,9 @@ class MySQLHandler(DatabaseHandler):
         return self._connection.close()
 
     def getByUUID(self, entity, entity_ref):
-        from app.core.entity import Entity
-        from app.core.data_field import DataField
-        from app.core.table_section import TableSection
+        from core.entity import Entity
+        from core.data_field import DataField
+        from core.table_section import TableSection
         print("Отримую дані обєкта")
         try:
             if not self._connection or not self._connection.is_connected():
