@@ -1,5 +1,5 @@
 #from app.core.base import Base
-from app.core.constants import *
+from core.constants import *
 from .mysqlhandler import MySQLHandler
 from .sqllitehandler import SQLiteHandler
 

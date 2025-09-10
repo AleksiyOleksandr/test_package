@@ -1,7 +1,7 @@
 import sqlite3
 import os
 from .databasehandler import DatabaseHandler
-from app.core.constants import DATABASE_PATH
+from core.constants import DATABASE_PATH
 
 class SQLiteHandler(DatabaseHandler):  # Було `SQLiteGandler`, виправив
     def __init__(self):

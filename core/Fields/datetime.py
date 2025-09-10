@@ -1,5 +1,5 @@
 from datetime import datetime
-from .data_field import DataField
+from core.data_field import DataField
 
 
 class DateTime(DataField):

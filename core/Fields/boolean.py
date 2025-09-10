@@ -1,4 +1,4 @@
-from app.core.data_field import DataField
+from core.data_field import DataField
 
 class Boolean(DataField):
 
