@@ -1,7 +1,7 @@
 from .databasehandler import DatabaseHandler
 import mysql.connector
 from mysql.connector import Error
-from app.core.constants import DATABASE_PATH, DATABASE_USER, DATABASE_PWD, DATABASE_NAME, NULLLINK
+from core.constants import DATABASE_PATH, DATABASE_USER, DATABASE_PWD, DATABASE_NAME, NULLLINK
 import pprint
 
 #from ..core.table_section import TableSection
