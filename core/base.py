@@ -75,9 +75,9 @@ class Base:
         return self._objectName
 
     def toDict(self):
-        from app.core.table_section import TableSection
-        from app.core.data_field import DataField
-        from app.core.entity import Entity
+        from core.table_section import TableSection
+        from core.data_field import DataField
+        from core.entity import Entity
 
         result = {}
         table_sections = {}
@@ -144,7 +144,7 @@ class Base:
 
     @staticmethod
     def _map_type(value):
-        from app.core.entity import Entity
+        from core.entity import Entity
         if isinstance(value, String):  # Якщо це Field
             return {
                 "type": "VARCHAR",

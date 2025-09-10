@@ -64,8 +64,8 @@ class MySQLHandler(DatabaseHandler):
             for name, value in entity.__dict__.items():
                 if not name.startswith('_'):
                     if isinstance(value, Entity):
-                        from app.core.reference import Reference
-                        from app.core.document import Document
+                        from core.reference import Reference
+                        from core.document import Document
                         if isinstance(value, Reference):
                             fields.append(f"{table_name}.{name} as {name}")
                             fields.append(f"{name}.name as {name}_name")
@@ -210,7 +210,7 @@ class MySQLHandler(DatabaseHandler):
 
     def save(self, data, connection=None):
         import uuid
-        from app.core.table_section import TableSection
+        from core.table_section import TableSection
         
         auto_commit = False
         if connection is None:
@@ -554,9 +554,9 @@ class MySQLHandler(DatabaseHandler):
 
     def getList(self, entity, filter=None, orderBy=None, limit=None, offset=None):
         #testing
-        from app.core.entity import Entity
-        from app.core.data_field import DataField
-        from app.core.table_section import TableSection
+        from core.entity import Entity
+        from core.data_field import DataField
+        from core.table_section import TableSection
         try:
             if not self._connection or not self._connection.is_connected():
                 self.init()
