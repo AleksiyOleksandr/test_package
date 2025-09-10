@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: core
+Version: 0.1.0
+Summary: Core package for your project
+Home-page: https://github.com/test_package/core
+Author: bogdanAntonjuk
+Author-email: bogdan.antonjuk@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: mysql-connector-python>=8.0.36
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Core Package
+
+This package contains core modules for your project.
+
+## Installation
+
+```bash
+pip install git+https://github.com/test_package/core.git
