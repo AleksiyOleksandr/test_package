@@ -1,3 +1,4 @@
+from .Fields import String
 from .Fields.boolean import Boolean
 from .entity import Entity
 from .counter import Counter
@@ -8,6 +9,9 @@ class Reference(Entity):
         self.deleted = Boolean()
         self.deleted.value = False
         self._type = "ref"
+
+        self.code = String()
+        self.code.len = 11
 
     def refreshCounter(self, counter: Counter):
         counter.entityName.value = self.objectName.value

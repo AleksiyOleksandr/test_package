@@ -42,7 +42,7 @@ class Base:
         pass
 
     def create(self):
-        from app.core.event import Event
+        from core.event import Event
         self.beforeCreate()
         self.onCreate()
         self.afterCreate()
