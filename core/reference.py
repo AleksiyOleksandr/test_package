@@ -1,6 +1,6 @@
-from app.core.Fields.boolean import Boolean
-from app.core.entity import Entity
-from app.core.counter import Counter
+from .Fields.boolean import Boolean
+from .entity import Entity
+from .counter import Counter
 
 class Reference(Entity):
     def __init__(self):
