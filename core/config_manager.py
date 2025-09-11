@@ -14,6 +14,9 @@ data = {
 # Шлях до файлу в корені проєкту користувача
 file_path = os.path.join(os.getcwd(), "config.json")
 
+class NotConfigInFile(Exception):
+    pass
+
 class ConfigManager():
     _instance = None
     _config = None
@@ -33,7 +36,9 @@ class ConfigManager():
                 print('Конфігураційний файл не створено!')
                 print('Створюю файл config.json в корені проєкту)')
                 self.__createFile()
-                print('Файл створено:) Заповніть будь-ласка файл!')
+                print('Файл створено:)')
+                raise NotConfigInFile(f"Файл {file_path} створено автоматично. "
+                "Будь ласка, заповніть його і запустіть програму ще раз.")
             with open(file_path, 'r', encoding='utf-8') as file:
                 self._config = json.load(file)
         return self._config
