@@ -15,7 +15,7 @@ data = {
 root_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Шлях до файлу в корені
-file_path = os.path.join(root_dir, "data.json")
+file_path = os.path.join(root_dir, "config.json")
 
 class ConfigManager():
     _instance = None
@@ -35,6 +35,7 @@ class ConfigManager():
             if not os.path.isfile(file_path):
                 print('Конфігураційний файл не створено!')
                 print('Створюю файл config.json в корені проєкту)')
+                self.__createFile()
                 print('Файл створено:) Заповніть будь-ласка файл!')
             with open(file_path, 'r', encoding='utf-8') as file:
                 self._config = json.load(file)
