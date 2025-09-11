@@ -11,11 +11,8 @@ data = {
   }
 }
 
-# Абсолютний шлях до кореня
-root_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Шлях до файлу в корені
-file_path = os.path.join(root_dir, "config.json")
+# Шлях до файлу в корені проєкту користувача
+file_path = os.path.join(os.getcwd(), "config.json")
 
 class ConfigManager():
     _instance = None
