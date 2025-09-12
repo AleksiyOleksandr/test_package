@@ -88,7 +88,7 @@ class Entity(Base):
         fields_schema = {}
 
         from .data_field import DataField
-        from app.core.table_section import TableSection
+        from core.table_section import TableSection
 
         try:
             temp_instance = cls()
