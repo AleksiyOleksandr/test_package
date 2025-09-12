@@ -20,4 +20,4 @@ class Boolean(DataField):
         if not isinstance(val, bool):
             return
             #raise ValueError("The 'value' property must be a boolean value.")
-        self._value = val
+        DataField.value.fset(self, val)

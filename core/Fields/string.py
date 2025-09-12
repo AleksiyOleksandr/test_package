@@ -11,7 +11,7 @@ class String(DataField):
     def value(self,val):
         if not isinstance(val, str):
             raise ValueError("The 'value' property must be a string value.")
-        self._value = val[:self._len] #Встановлюємо значення в межах заданої довжини
+        DataField.value.fset(self, val[:self._len]) #Встановлюємо значення в межах заданої довжини
 
     @property
     def len(self):

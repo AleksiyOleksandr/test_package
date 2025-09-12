@@ -3,15 +3,9 @@ import uuid
 from .base import Base
 from .constants import NULLLINK
 
-from .Fields.string import String
-from .Database.databasemanager import DatabaseManger
+from core.Fields.string import String
+from core.Database.databasemanager import DatabaseManger
 from .event import Event
-
-from .Fields.boolean import Boolean
-from .Fields.datetime import DateTime
-from .Fields.number import Number
-
-
 
 
 class Entity(Base):
@@ -33,8 +27,15 @@ class Entity(Base):
         self.uuid.isIndexed = True
         self.uuid.isUnique = True
 
+        self._callBacks = list()
 
 
+    def addCallback(self, func):
+        self._callBacks.append(func)
+
+    def notifyChange(self):
+        for func in self._callBacks:
+            func()
 
     #@property
     def ref(self):
@@ -87,7 +88,7 @@ class Entity(Base):
         fields_schema = {}
 
         from .data_field import DataField
-        from core.table_section import TableSection
+        from app.core.table_section import TableSection
 
         try:
             temp_instance = cls()

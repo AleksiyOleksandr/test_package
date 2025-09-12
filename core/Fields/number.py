@@ -23,7 +23,7 @@ class Number(DataField):
         if self._decimal_places is not None:
             # Округлення до заданої кількості знаків після коми
             val = round(val, self._decimal_places)
-        self._value = val
+        DataField.value.fset(self, val)
 
     @property
     def min(self):

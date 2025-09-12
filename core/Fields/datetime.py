@@ -24,7 +24,7 @@ class DateTime(DataField):
             raise ValueError("The 'value' property must be a datetime object or a properly formatted string.")
 
 
-        self._value = val
+        DataField.value.fset(self, val)
 
 
 
