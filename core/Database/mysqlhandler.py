@@ -134,13 +134,13 @@ class MySQLHandler(DatabaseHandler):
                                     fields.append(f"{ts_name_sql}.{col.name} as {col.name}")
                                     fields.append(f"{col.name}.name as {col.name}_name")
                                     joins.append(
-                                        f"LEFT JOIN {a._type}_{a._objectName.value}  as {col.name} ON {col.name}.uuid={ts_name_sql}.{col.name}")
+                                        f"LEFT JOIN {a._type}_{a._objectName.value.lower()}  as {col.name} ON {col.name}.uuid={ts_name_sql}.{col.name}")
                                 elif isinstance(a, Document):
                                     fields.append(f"{ts_name_sql}.{col.name} as {col.name}")
                                     fields.append(f"{col.name}.number as {col.name}_number")
                                     fields.append(f"{col.name}.datedoc as {col.name}_datedoc")
                                     joins.append(
-                                        f"LEFT JOIN {a._type}_{a._objectName.value} as {col.name} ON {col.name}.uuid={ts_name_sql}.{col.name}")
+                                        f"LEFT JOIN {a._type}_{a._objectName.value.lower()} as {col.name} ON {col.name}.uuid={ts_name_sql}.{col.name}")
                                 elif isinstance(a, DataField):
                                     fields.append(f"{ts_name_sql}.{col.name} as {col.name}")
                             ts_query = f"SELECT {','.join(map(str, fields))} FROM {ts_name_sql} {' '.join(map(str, joins))} WHERE {ts_name_sql}.owner = %s"
@@ -577,8 +577,8 @@ class MySQLHandler(DatabaseHandler):
             for name, value in entity.__dict__.items():
                 if not name.startswith('_'):
                     if isinstance(value, Entity):
-                        from app.core.reference import Reference
-                        from app.core.document import Document
+                        from core.reference import Reference
+                        from core.document import Document
                         if isinstance(value, Reference):
                             fields.append(f"{table_name}.{name} as {name}")
                             fields.append(f"{name}.name as {name}_name")
